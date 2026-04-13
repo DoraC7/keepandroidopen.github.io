@@ -627,12 +627,20 @@
       /* Full bleed */
       margin-left: -2rem;
       margin-right: -2rem;
+      /* Force LTR layout so translateX works consistently in all languages.
+         Card content still renders in the page's native direction. */
+      direction: ltr;
     }
 
     .ticker-track {
       display: flex;
       width: max-content;
       will-change: transform;
+    }
+
+    /* Restore the page's text direction inside each card */
+    .ticker-card {
+      direction: initial;
     }
 
     /* Pure CSS hover pause — no JS needed, no animation jump */
